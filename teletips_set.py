@@ -11,6 +11,15 @@ import asyncio
 from plugins.teletips_t import *
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.raw.functions.messages import UpdatePinnedMessage
+from datetime import datetime
+
+# Timer Credit Rodolphus 
+# -----------------------------------Timer--------------------------------------------------
+alexam = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
+now  = datetime.now()                         # Now
+duration = alexam - now                         # For build-in functions
+duration_in_s = duration.total_seconds()      # Total number of seconds between dates
+# -------------------------------------------------------------------------------------------
 
 bot=Client(
     "Countdown-TeLeTiPs",
@@ -134,7 +143,7 @@ async def set_timer(client, message):
         elif len(message.command)<3:
             return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 10 "10 seconds countdown"</code>')    
         else:
-            user_input_time = int(message.command[1])
+            user_input_time = duration_in_s
             user_input_event = str(message.command[2])
             get_user_input_time = await bot.send_message(message.chat.id, user_input_time)
             await get_user_input_time.pin()
