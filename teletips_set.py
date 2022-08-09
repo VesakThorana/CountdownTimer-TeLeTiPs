@@ -18,7 +18,8 @@ from datetime import datetime
 alexam = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
 now  = datetime.now()                         # Now
 duration = alexam - now                         # For build-in functions
-duration_in_s = duration.total_seconds()      # Total number of seconds between dates
+duration_in_s_h = duration.total_seconds() # Total number of seconds between dates
+duration_in_s_h = round(duration_in_s_h)
 # -------------------------------------------------------------------------------------------
 
 bot=Client(
