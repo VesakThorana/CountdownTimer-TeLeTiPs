@@ -135,7 +135,6 @@ async def callback_query(client: Client, query: CallbackQuery):
 
 @bot.on_message(filters.command(['al', 'al22']))
 async def set_timer(client, message):
- 
     alexam = datetime(2022, 11, 27, 23, 59, 59)  # Random date in the past
     now  = datetime.now()                      # Now
     duration = alexam - now                    # For build-in functions
@@ -149,14 +148,14 @@ async def set_timer(client, message):
             return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')        
         else:
             user_input_time = duration_in_s
-            user_input_event = str(message.command[2])
+            user_input_event = "al"
             get_user_input_time = await bot.send_message(message.chat.id, user_input_time)
             await get_user_input_time.pin()
             if stoptimer: stoptimer = False
             if 0<user_input_time<=10:
                 while user_input_time and not stoptimer:
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='⏳ {:02d}**s**\n\n<i>{}</i>'.format(s, footer_message)
+                    Countdown_TeLe_TiPs='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>උසස් පෙළ විභාගයට තව,</b></u> \n\n**තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By @ExamCountDownTimerBot**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(1)
                     user_input_time -=1
@@ -173,7 +172,7 @@ async def set_timer(client, message):
                 while user_input_time>0 and not stoptimer:
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='⏳ {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(m, s, footer_message)
+                    Countdown_TeLe_TiPs='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>උසස් පෙළ විභාගයට තව,</b></u> \n\n**මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By @ExamCountDownTimerBot**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(3)
                     user_input_time -=3
@@ -183,7 +182,7 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='⏳ {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(h, m, s, footer_message)
+                    Countdown_TeLe_TiPs='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>උසස් පෙළ විභාගයට තව,</b></u> \n\n**පැය** {:02d} යි **මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By @ExamCountDownTimerBot**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(7)
                     user_input_time -=7
@@ -194,7 +193,7 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='Hee\n\n⏳ {:02d}**d** : {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(d, h, m, s, footer_message)
+                    Countdown_TeLe_TiPs='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>උසස් පෙළ විභාගයට තව,</b></u> \n\nදින {:02d} යි **පැය** {:02d} යි **මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By @ExamCountDownTimerBot**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(d, h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(9)
                     user_input_time -=9
