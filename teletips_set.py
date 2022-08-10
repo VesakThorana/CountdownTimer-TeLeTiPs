@@ -14,7 +14,7 @@ from pyrogram.raw.functions.messages import UpdatePinnedMessage
 from datetime import datetime
 
 # Timer Credit Rodolphus 
-# -----------------------------------Timer--------------------------------------------------
+# -----------------------------------Timer For A/L 2023--------------------------------------------------
 alexam = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
 now  = datetime.now()                         # Now
 duration = alexam - now                         # For build-in functions
@@ -133,16 +133,14 @@ async def callback_query(client: Client, query: CallbackQuery):
         except MessageNotModified:
             pass    
 
-@bot.on_message(filters.command('set'))
+@bot.on_message(filters.command(['al', 'al22'))
 async def set_timer(client, message):
     global stoptimer
     try:
         if message.chat.id>0:
             return await message.reply('⛔️ Try this command in a **group chat**.')
         elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).privileges:
-            return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')    
-        elif len(message.command)<3:
-            return await message.reply('❌ **Incorrect format.**\n\n✅ Format should be like,\n<code> /set seconds "event"</code>\n\n**Example**:\n <code>/set 10 "10 seconds countdown"</code>')    
+            return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')        
         else:
             user_input_time = duration_in_s
             user_input_event = str(message.command[2])
@@ -152,7 +150,7 @@ async def set_timer(client, message):
             if 0<user_input_time<=10:
                 while user_input_time and not stoptimer:
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, s, footer_message)
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(1)
                     user_input_time -=1
@@ -160,7 +158,7 @@ async def set_timer(client, message):
             elif 10<user_input_time<60:
                 while user_input_time>0 and not stoptimer:
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, s, footer_message)   
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**s**\n\n<i>{}</i>'.format(s, footer_message)   
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(3)
                     user_input_time -=3
@@ -169,7 +167,7 @@ async def set_timer(client, message):
                 while user_input_time>0 and not stoptimer:
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, m, s, footer_message)
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(3)
                     user_input_time -=3
@@ -179,7 +177,7 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, h, m, s, footer_message)
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(7)
                     user_input_time -=7
@@ -190,7 +188,7 @@ async def set_timer(client, message):
                     h=user_input_time%(3600*24)//3600
                     m=user_input_time%3600//60
                     s=user_input_time%60
-                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**d** : {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(user_input_event, d, h, m, s, footer_message)
+                    Countdown_TeLe_TiPs='{}\n\n⏳ {:02d}**d** : {:02d}**h** : {:02d}**m** : {:02d}**s**\n\n<i>{}</i>'.format(d, h, m, s, footer_message)
                     finish_countdown = await get_user_input_time.edit(Countdown_TeLe_TiPs)
                     await asyncio.sleep(9)
                     user_input_time -=9
