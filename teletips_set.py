@@ -18,7 +18,7 @@ from datetime import datetime
 alexam1 = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
 now_1  = datetime.now()                         # Now
 duration1 = alexam1 - now_1                         # For build-in functions
-duration_in_s_hh = duration.total_seconds() # Total number of seconds between dates
+duration_in_s_hh = duration1.total_seconds() # Total number of seconds between dates
 duration_in_ss = round(duration_in_s_hh)
 # -------------------------------------------------------------------------------------------
 
