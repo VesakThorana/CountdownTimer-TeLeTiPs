@@ -15,9 +15,9 @@ from datetime import datetime
 
 # Timer Credit Rodolphus 
 # -----------------------------------Timer For A/L 2023--------------------------------------------------
-alexam_1 = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
+alexam1 = datetime(2022, 11, 27, 23, 59, 59)        # Random date in the past
 now_1  = datetime.now()                         # Now
-duration_1 = alexam - now                         # For build-in functions
+duration1 = alexam - now                         # For build-in functions
 duration_in_s_hh = duration.total_seconds() # Total number of seconds between dates
 duration_in_ss = round(duration_in_s_h)
 # -------------------------------------------------------------------------------------------
@@ -135,6 +135,7 @@ async def callback_query(client: Client, query: CallbackQuery):
 
 @bot.on_message(filters.command(['al', 'al22']))
 async def set_timer(client, message):
+ 
     alexam = datetime(2022, 11, 27, 23, 59, 59)  # Random date in the past
     now  = datetime.now()                      # Now
     duration = alexam - now                    # For build-in functions
