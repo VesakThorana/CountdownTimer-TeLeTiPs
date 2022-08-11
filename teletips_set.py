@@ -7,7 +7,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import os
-import pytz
 import asyncio
 from plugins.teletips_t import *
 from pyrogram.errors import FloodWait, MessageNotModified
@@ -31,8 +30,6 @@ bot=Client(
 )
 
 footer_message = os.environ["FOOTER_MESSAGE"]
-
-Time_Zone = os.environ["TIME_ZONE"]
 
 stoptimer = False
 
@@ -139,7 +136,7 @@ async def callback_query(client: Client, query: CallbackQuery):
 @bot.on_message(filters.command(['al', 'al22']))
 async def set_timer(client, message):
     alexam = datetime(2022, 11, 27, 23, 59, 59)  # Random date in the past
-    now  = datetime.now(pytz.timezone(f"{Time_Zone}"))        # Now
+    now  = datetime.now()        # Now
     duration = alexam - now                    # For build-in functions
     duration_in_s_h = duration.total_seconds() # Total number of seconds between dates
     duration_in_s = round(duration_in_s_h)
