@@ -204,6 +204,79 @@ async def set_timer(client, message):
     except FloodWait as e:
         await asyncio.sleep(e.value)
 
+
+
+@bot.on_message(filters.command(['ol', 'ol22']))
+async def set_timer(client, message):
+    olexam = datetime(2022, 11, 27, 23, 59, 59)  # Random date in the past
+    now  = datetime.now()        # Now
+    duration = olexam - now                    # For build-in functions
+    duration_in_s_h = duration.total_seconds() # Total number of seconds between dates
+    duration_in_s = round(duration_in_s_h)
+    global stoptimer
+    try:
+        if message.chat.id>0:
+            return await message.reply('⛔️ Try this command in a **group chat**.')
+        elif not (await client.get_chat_member(message.chat.id,message.from_user.id)).privileges:
+            return await message.reply('👮🏻‍♂️ Sorry, **only admins** can execute this command.')        
+        else:
+            user_input_time = duration_in_s
+            user_input_event = "al"
+            get_user_input_time = await bot.send_message(message.chat.id, user_input_time)
+            await get_user_input_time.pin()
+            if stoptimer: stoptimer = False
+            if 0<user_input_time<=10:
+                while user_input_time and not stoptimer:
+                    s=user_input_time%60
+                    matheesha='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>සාමාන්‍ය පෙළ විභාගයට තව,</b></u> \n\n**තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By \n@ExamCountDown_BOT**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(s, footer_message)
+                    finish_countdown = await get_user_input_time.edit(matheesha)
+                    await asyncio.sleep(1)
+                    user_input_time -=1
+                await finish_countdown.edit("🚨 Beep! Beep!! **TIME'S UP!!!**")
+            elif 10<user_input_time<60:
+                while user_input_time>0 and not stoptimer:
+                    s=user_input_time%60
+                    matheesha='⏳ {:02d}**s**\n\n<i>{}</i>'.format(s, footer_message)   
+                    finish_countdown = await get_user_input_time.edit(matheesha)
+                    await asyncio.sleep(3)
+                    user_input_time -=3
+                await finish_countdown.edit("🚨 Beep! Beep!! **TIME'S UP!!!**")
+            elif 60<=user_input_time<3600:
+                while user_input_time>0 and not stoptimer:
+                    m=user_input_time%3600//60
+                    s=user_input_time%60
+                    matheesha='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>සාමාන්‍ය පෙළ විභාගයට තව,</b></u> \n\n**මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By \n@ExamCountDown_BOT**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(m, s, footer_message)
+                    finish_countdown = await get_user_input_time.edit(matheesha)
+                    await asyncio.sleep(3)
+                    user_input_time -=3
+                await finish_countdown.edit("🚨 Beep! Beep!! **TIME'S UP!!!**")
+            elif 3600<=user_input_time<86400:
+                while user_input_time>0 and not stoptimer:
+                    h=user_input_time%(3600*24)//3600
+                    m=user_input_time%3600//60
+                    s=user_input_time%60
+                    matheesha='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>සාමාන්‍ය පෙළ විභාගයට තව,</b></u> \n\n**පැය** {:02d} යි **මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By \n@ExamCountDown_BOT**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(h, m, s, footer_message)
+                    finish_countdown = await get_user_input_time.edit(matheesha)
+                    await asyncio.sleep(7)
+                    user_input_time -=7
+                await finish_countdown.edit("🚨 Beep! Beep!! **TIME'S UP!!!**")
+            elif user_input_time>=86400:
+                while user_input_time>0 and not stoptimer:
+                    d=user_input_time//(3600*24)
+                    h=user_input_time%(3600*24)//3600
+                    m=user_input_time%3600//60
+                    s=user_input_time%60
+                    matheesha='🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻\n\n⏰ <u><b>සාමාන්‍ය පෙළ විභාගයට තව,</b></u> \n\nදින {:02d} යි **පැය** {:02d} යි **මිනිත්තු** {:02d} යි **තප්පර** {:02d} ක කාලයක් ඇත. 🥀\n\n<i>{}</i>\n\n**Powered By \n@ExamCountDown_BOT**\n\n☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️☘️'.format(d, h, m, s, footer_message)
+                    finish_countdown = await get_user_input_time.edit(matheesha)
+                    await asyncio.sleep(9)
+                    user_input_time -=9
+                await finish_countdown.edit("🚨 Beep! Beep!! **TIME'S UP!!!**")
+            else:
+                await get_user_input_time.edit(f"🤷🏻‍♂️ I can't countdown from {user_input_time}")
+                await get_user_input_time.unpin()
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
+      
 @bot.on_message(filters.command('stopc'))
 async def stop_timer(Client, message):
     global stoptimer
