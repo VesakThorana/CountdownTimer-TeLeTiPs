@@ -7,6 +7,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import os
+import pytz
 import asyncio
 from plugins.teletips_t import *
 from pyrogram.errors import FloodWait, MessageNotModified
