@@ -14,13 +14,12 @@ GROUP_TEXT="""
 
 HELP_TEXT = """
 🚀 | **GET STARTED**
-<i>Add your bot to the group.</i>
+<i>මුලින්ම මාව ඔයාලගෙ Group එකට Add කරගන්න 🎊.</i>
 👮🏻‍♂️ | **ADMIN PERMISSIONS**
-<i>Don't forget to make your bot admin of the group.</i>
+<i>අමතක නොකර මාව Admin කෙනෙක් කරන්න 🥰 නැත්තම් මම වැඩ කරන්නැ 😡 .</i>
 🕹 | **COMMANDS**
-✦ **set**
-<i>Send the command below in correct format to the group.</i>
-• <code>/set seconds "event"</code>
+✦ **GCE A/L Examination**
+<code>/al</code> 
 **example**
 • <code>/set 10 "10 seconds countdown"</code>
 ✦ **stopc**
